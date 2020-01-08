@@ -8,7 +8,7 @@ package com.dagm.shorter.feign;
 import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Guimu
@@ -25,5 +25,5 @@ public interface FileDown {
      * @date 2020/1/8
      */
     @GetMapping(value = "/inner/download")
-    Response download(@RequestPart("filename") String filename);
+    Response download(@RequestParam("filename") String filename);
 }

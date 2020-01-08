@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: shorter-service
+  cloud:
+    nacos:
+      config:
+        file-extension: yml  #该属性默认为properties
+        server-addr: ${nacos.addr}
+        shared-dataids: common.yml,manager.yml
+        refreshable-dataids: log.${spring.cloud.nacos.config.file-extension}
+      discovery:
+        server-addr: ${nacos.addr}
+        log-name:
+
+nacos:
+  addr: nacos.dagm.com

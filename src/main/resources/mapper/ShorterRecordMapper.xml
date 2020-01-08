@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dagm.shorter.mapper.ShorterRecordMapper">
+
+  <resultMap id="BaseResultMap" type="com.dagm.shorter.model.ShorterRecordPO">
+    <id column="id" property="id"/>
+    <result column="shouter_str" property="shouterStr" jdbcType="VARCHAR"/>
+    <result column="expired_time" property="expiredTime" jdbcType="TIMESTAMP"/>
+
+  </resultMap>
+  <sql id="baseSql">
+    id,shouter_str,expired_time
+  </sql>
+  <insert id="addRecord" keyProperty="id" useGeneratedKeys="true">
+    insert into ${tableName}(id,shouter_str,expired_time) values (#{record.id},#{record.shouterStr},#{record.expiredTime})
+  </insert>
+
+  <select id="getOssFilePathById" resultMap="BaseResultMap">
+    select
+    <include refid="baseSql"/>
+    from ${tableName} where id = #{leafId}
+  </select>
+</mapper>

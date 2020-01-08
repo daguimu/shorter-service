@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,8 +44,8 @@ public interface FileFeign {
      * @author Guimu
      * @date 2020/1/8
      */
-    @GetMapping(value = "/inner/download")
-    void downloadFile(@RequestParam(value = "filename") String filename,
+    @GetMapping(value = "/inner/api/download")
+    ResponseEntity<byte[]> downloadFile(@RequestParam(value = "filename") String filename,
         HttpServletResponse response);
 
     class MultipartSupportConfig {

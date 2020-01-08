@@ -6,12 +6,15 @@
 package com.dagm.shorter.feign;
 
 import com.dagm.shorter.res.BaseResult;
+import feign.Response;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,6 +35,16 @@ public interface FileFeign {
      */
     @PostMapping(value = "/inner/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     BaseResult<String> upload(@RequestPart("file") MultipartFile file);
+
+    /**
+     * 文件下载
+     *
+     * @return feign.Response
+     * @author Guimu
+     * @date 2020/1/8
+     */
+    @GetMapping(value = "/inner/download")
+    Response download(@RequestParam("filename") String filename);
 
     class MultipartSupportConfig {
 

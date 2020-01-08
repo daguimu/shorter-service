@@ -6,10 +6,10 @@
 package com.dagm.shorter.controller.api;
 
 import static com.dagm.devtool.common.BaseErrorCode.OUTTER_PARAM_ERROR;
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
 import com.dagm.devtool.utils.PreconditionsUtil;
 import com.dagm.shorter.config.ShorterConfig;
-import com.dagm.shorter.feign.FileDown;
 import com.dagm.shorter.feign.FileFeign;
 import com.dagm.shorter.req.AddShortRecReq;
 import com.dagm.shorter.res.BaseResult;
@@ -18,9 +18,11 @@ import feign.Response;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,8 +48,6 @@ public class ShorterController {
     private ShorterConfig shorterConfig;
     @Autowired
     private FileFeign fileFeign;
-    @Autowired
-    private FileDown fileDown;
 
 
     @PostMapping(value = "add")
@@ -72,7 +72,11 @@ public class ShorterController {
     @GetMapping(value = "download")
     public void download(@RequestParam(value = "filename") String filename,
         HttpServletResponse httpServletResponse) {
-        Response response = fileDown.download(filename);
+        httpServletResponse
+            .setContentType("application/x-download;charset=" + Charsets.UTF_8.displayName());
+        httpServletResponse.addHeader("Content-Disposition",
+            "attachment;filename=" + this.reWriteChinese(filename));
+        Response response = fileFeign.download(filename);
         Response.Body body = response.body();
         try (OutputStream outputStream = httpServletResponse.getOutputStream();
             InputStream inputStream = body.asInputStream()) {
@@ -81,5 +85,9 @@ public class ShorterController {
         } catch (IOException e) {
             log.error("下载文件异常 filepath:[{}]", filename, e);
         }
+    }
+
+    private String reWriteChinese(String val) {
+        return new String(val.getBytes(StandardCharsets.UTF_8), ISO_8859_1);
     }
 }

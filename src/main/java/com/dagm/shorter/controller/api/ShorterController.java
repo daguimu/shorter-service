@@ -9,6 +9,7 @@ import static com.dagm.devtool.common.BaseErrorCode.OUTTER_PARAM_ERROR;
 
 import com.dagm.devtool.utils.PreconditionsUtil;
 import com.dagm.shorter.config.ShorterConfig;
+import com.dagm.shorter.feign.FileDown;
 import com.dagm.shorter.feign.FileFeign;
 import com.dagm.shorter.req.AddShortRecReq;
 import com.dagm.shorter.res.BaseResult;
@@ -45,6 +46,8 @@ public class ShorterController {
     private ShorterConfig shorterConfig;
     @Autowired
     private FileFeign fileFeign;
+    @Autowired
+    private FileDown fileDown;
 
 
     @PostMapping(value = "add")
@@ -69,7 +72,7 @@ public class ShorterController {
     @GetMapping(value = "download")
     public void download(@RequestParam(value = "filename") String filename,
         HttpServletResponse httpServletResponse) {
-        Response response = fileFeign.download(filename);
+        Response response = fileDown.download(filename);
         Response.Body body = response.body();
         try (OutputStream outputStream = httpServletResponse.getOutputStream();
             InputStream inputStream = body.asInputStream()) {

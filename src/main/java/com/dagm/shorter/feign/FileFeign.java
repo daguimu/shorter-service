@@ -11,12 +11,11 @@ import feign.form.spring.SpringFormEncoder;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+import feign.Response;
 
 /**
  * @author Guimu
@@ -37,14 +36,16 @@ public interface FileFeign {
     BaseResult<String> upload(@RequestPart("file") MultipartFile file);
 
     /**
-     * 根据文件名下载文件
+     * 文件下载
      *
-     * @param filename, response
+     * @param filename
+     * @return feign.Response
      * @author Guimu
      * @date 2020/1/8
      */
-    @GetMapping(value = "/inner/api/download")
-    ResponseEntity<byte[]> downloadFile(@RequestParam(value = "filename") String filename);
+    @GetMapping(value = "/inner/download")
+    Response download(@RequestPart("filename") String filename);
+
 
     class MultipartSupportConfig {
 

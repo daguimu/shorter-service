@@ -73,7 +73,7 @@ public class ShorterController {
     @GetMapping(value = "download")
     public void down(@RequestParam(value = "filename") String filename,
         HttpServletResponse response) {
-        ResponseEntity<byte[]> entity = fileFeign.downloadFile(filename, response);
+        ResponseEntity<byte[]> entity = fileFeign.downloadFile(filename);
         if (entity.getStatusCode() != HttpStatus.OK && entity.getBody() != null) {
             PreconditionsUtil.checkArgument(false, SYSTEM_ERROR);
         }

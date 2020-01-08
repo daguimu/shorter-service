@@ -8,7 +8,6 @@ package com.dagm.shorter.feign;
 import com.dagm.shorter.res.BaseResult;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
@@ -45,8 +44,7 @@ public interface FileFeign {
      * @date 2020/1/8
      */
     @GetMapping(value = "/inner/api/download")
-    ResponseEntity<byte[]> downloadFile(@RequestParam(value = "filename") String filename,
-        HttpServletResponse response);
+    ResponseEntity<byte[]> downloadFile(@RequestParam(value = "filename") String filename);
 
     class MultipartSupportConfig {
 

@@ -61,9 +61,7 @@ public class ShorterRecordServiceImpl implements ShorterRecordService {
         if (recordDto == null
             && (recordDto = ShorterAdapter
             .shortPo2Dto(shorterRecordMapper.getOssFilePathById(tableName, leafId))) != null) {
-            boolean aBoolean = redisStoreClient.set(setting.getKey(), recordDto, 5 * 60);
-            log.info("从db中查询到recordDto:[{}],succ:[{}]", recordDto, aBoolean);
-
+            redisStoreClient.set(setting.getKey(), recordDto, 5 * 60);
         }
         boolean result = true;
         //记录不存在或者已过期

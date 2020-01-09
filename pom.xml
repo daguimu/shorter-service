@@ -31,7 +31,7 @@
     <dependency>
       <groupId>com.dagm</groupId>
       <artifactId>dev-tool</artifactId>
-      <version>0.0.1-BETA</version>
+      <version>0.0.2-BETA</version>
     </dependency>
     <dependency>
       <groupId>com.dagm</groupId>

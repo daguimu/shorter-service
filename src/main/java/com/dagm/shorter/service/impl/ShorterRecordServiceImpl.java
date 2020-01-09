@@ -8,13 +8,11 @@ package com.dagm.shorter.service.impl;
 import static com.dagm.shorter.enums.ShorterTipEnum.URL_EXPIRED_ERROR;
 import static com.dagm.shorter.enums.ShorterTipEnum.URL_NOT_EXISTED_ERROR;
 
-import com.alibaba.fastjson.JSONObject;
 import com.dagm.devtool.cache.CacheKeySetting;
 import com.dagm.devtool.service.RedisStoreClient;
 import com.dagm.devtool.utils.DateTimeUtil;
 import com.dagm.shorter.adapter.ShorterAdapter;
 import com.dagm.shorter.cache.ShorterCacheKeyUtil;
-import com.dagm.shorter.config.ShorterConfig;
 import com.dagm.shorter.dto.ShortRecordCacheDTO;
 import com.dagm.shorter.dto.ShortRecordDTO;
 import com.dagm.shorter.enums.ShorterTipEnum;
@@ -25,7 +23,6 @@ import com.dagm.shorter.utils.GenerateTableNameUtil;
 import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,8 +36,6 @@ public class ShorterRecordServiceImpl implements ShorterRecordService {
 
     @Autowired
     private RedisStoreClient redisStoreClient;
-    @Autowired
-    private ShorterConfig shorterConfig;
 
     @Autowired
     private ShorterRecordMapper shorterRecordMapper;
@@ -60,12 +55,9 @@ public class ShorterRecordServiceImpl implements ShorterRecordService {
     public boolean getRecordByLeafId(Long leafId) {
         //根据leafId 计算tableName
         String tableName = GenerateTableNameUtil.getShorterTableName(leafId);
-        ShortRecordCacheDTO recordDto = null;
         CacheKeySetting setting = ShorterCacheKeyUtil.getLeafCacheKey(leafId);
-        String cacheJsonVal = redisStoreClient.get(setting.getKey());
-        if (StringUtils.isNotEmpty(cacheJsonVal)) {
-            recordDto = JSONObject.parseObject(cacheJsonVal, ShortRecordCacheDTO.class);
-        }
+        ShortRecordCacheDTO recordDto = redisStoreClient.get(setting.getKey());
+        log.info("从redis中获取recordDto:[{}]", recordDto);
         if (recordDto == null
             && (recordDto = ShorterAdapter
             .shortPo2Dto(shorterRecordMapper.getOssFilePathById(tableName, leafId))) != null) {

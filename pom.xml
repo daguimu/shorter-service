@@ -31,7 +31,7 @@
     <dependency>
       <groupId>com.dagm</groupId>
       <artifactId>dev-tool</artifactId>
-      <version>0.0.8-RELEASE</version>
+      <version>0.0.1-BETA</version>
     </dependency>
     <dependency>
       <groupId>com.dagm</groupId>
@@ -79,11 +79,6 @@
       <version>1.2.62</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-redis</artifactId>
-      <version>1.5.10.RELEASE</version>
-    </dependency>
-    <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
       <version>0.2.1.RELEASE</version>
@@ -118,16 +113,7 @@
       <artifactId>spring-cloud-starter-openfeign</artifactId>
       <version>2.0.1.RELEASE</version>
     </dependency>
-    <dependency>
-      <groupId>io.github.openfeign.form</groupId>
-      <artifactId>feign-form</artifactId>
-      <version>3.4.1</version>
-    </dependency>
-    <dependency>
-      <groupId>io.github.openfeign.form</groupId>
-      <artifactId>feign-form-spring</artifactId>
-      <version>3.4.1</version>
-    </dependency>  </dependencies>
+  </dependencies>
   <build>
     <plugins>
       <plugin>

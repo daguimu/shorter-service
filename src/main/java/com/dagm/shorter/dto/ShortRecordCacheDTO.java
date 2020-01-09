@@ -5,7 +5,7 @@
  */
 package com.dagm.shorter.dto;
 
-import com.dagm.shorter.model.BaseObject;
+import com.dagm.devtool.model.BaseObject;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;

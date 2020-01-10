@@ -13,4 +13,4 @@ spring:
         log-name:
 
 nacos:
-  addr: nacos.dagm.com
+  addr: nacos.dagm.com:80

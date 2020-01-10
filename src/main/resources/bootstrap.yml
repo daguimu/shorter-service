@@ -1,6 +1,4 @@
 spring:
-  redis:
-    url: redis://UserIsIgnored:dagm_redis@123.57.225.101:6379
   application:
     name: shorter-service
   cloud:

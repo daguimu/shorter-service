@@ -5,8 +5,8 @@
  */
 package com.dagm.shorter.advice;
 
+import com.dagm.devtool.res.BaseResult;
 import com.dagm.shorter.exceptions.CommonException;
-import com.dagm.shorter.res.BaseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,7 +31,7 @@ public class GlobalDefultExceptionHandler {
     @ResponseBody
     public BaseResult<String> globalExceptionHandler(Exception e) {
 
-        BaseResult<String> baseResult = BaseResult.generateFailureRestlt(e.getMessage());
+        BaseResult<String> baseResult = BaseResult.generateFailureResult(e.getMessage());
         if (e instanceof CommonException) {
             baseResult.setCode(((CommonException) e).getCode());
             log.info("业务级别异常", e);

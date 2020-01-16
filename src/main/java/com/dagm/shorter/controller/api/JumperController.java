@@ -5,7 +5,6 @@
  */
 package com.dagm.shorter.controller.api;
 
-import com.dagm.devtool.service.RedisStoreClient;
 import com.dagm.shorter.service.ShorterService;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
@@ -25,8 +24,6 @@ public class JumperController {
 
     @Autowired
     private ShorterService shorterService;
-    @Autowired
-    private RedisStoreClient redisStoreClient;
 
     @GetMapping(value = "/{shortCode:[0-9a-zA-Z]+}")
     public void smsJumpUrl(@PathVariable(value = "shortCode") String shortCode,

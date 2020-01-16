@@ -2,7 +2,7 @@ package com.dagm.shorter.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.dagm.shorter.res.BaseResult;
+import com.dagm.devtool.res.BaseResult;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,7 +34,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     private void littleAuthor(HttpServletResponse response) throws Exception {
         response.setContentType("application/json; charset=utf-8");
         PrintWriter writer = response.getWriter();
-        BaseResult<String> bwJsonResult = BaseResult.generateFailureRestlt("您没有权限执行此操作");
+        BaseResult<String> bwJsonResult = BaseResult.generateFailureResult("您没有权限执行此操作");
         writer.print(JSONObject.toJSONString(bwJsonResult, SerializerFeature.WriteMapNullValue,
             SerializerFeature.WriteDateUseDateFormat));
         response.flushBuffer();

@@ -28,6 +28,7 @@ public class JumperController {
     @GetMapping(value = "/{shortCode:[0-9a-zA-Z]+}")
     public void smsJumpUrl(@PathVariable(value = "shortCode") String shortCode,
         HttpServletResponse response) throws IOException {
+
         String url = shorterService.backToLongStr(shortCode);
         response.sendRedirect(url);
     }

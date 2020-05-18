@@ -5,7 +5,7 @@
  */
 package com.dagm.shorter.controller.api;
 
-import static com.dagm.devtool.common.BaseErrorCode.OUTTER_PARAM_ERROR;
+import static com.dagm.devtool.common.BaseErrorCode.PARAM_ERROR;
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
 import com.dagm.api.feignclient.FileFeign;
@@ -57,7 +57,7 @@ public class ShorterController {
     @PostMapping(value = "restore")
     public BaseResult<String> getOrigin(@RequestBody @Valid AddShortRecReq recReq) {
         int len = shorterConfig.getBaseUrl().length();
-        PreconditionsUtil.checkArgument(recReq.getUrl().length() > len, OUTTER_PARAM_ERROR);
+        PreconditionsUtil.checkArgument(recReq.getUrl().length() > len, PARAM_ERROR);
         String shortUrl = recReq.getUrl().substring(len);
         String url = shorterService.backToLongStr(shortUrl);
         return BaseResult.generateSuccessResult(url);

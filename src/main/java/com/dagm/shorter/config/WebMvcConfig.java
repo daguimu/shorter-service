@@ -7,9 +7,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
- * @description: 对requestMapping方法进行拦截, 除了登陆方法
- * @author: Guimu
- * @create: 2018/04/18 18:52:16
+ * @desc 对requestMapping方法进行拦截, 除了登陆方法
+ * @author Guimu
+ * @create 2018/04/18 18:52:16
  **/
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {

@@ -10,8 +10,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author: Guimu
- * @created: 2019/07/25
+ * @author Guimu
+ * @create 2019/07/25
  */
 @Mapper
 public interface ShorterRecordMapper {

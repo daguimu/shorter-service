@@ -5,14 +5,15 @@
  */
 package com.dagm.shorter.req;
 
-import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotNull;
+
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 @Getter
 @Setter

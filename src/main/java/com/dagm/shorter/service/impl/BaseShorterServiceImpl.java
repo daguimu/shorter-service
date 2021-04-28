@@ -8,14 +8,15 @@ package com.dagm.shorter.service.impl;
 import com.dagm.shorter.service.Base62Service;
 import com.dagm.shorter.service.BaseShorterService;
 import com.google.common.collect.BiMap;
-import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 @Slf4j
 @Service

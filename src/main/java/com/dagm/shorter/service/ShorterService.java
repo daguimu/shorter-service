@@ -6,8 +6,8 @@
 package com.dagm.shorter.service;
 
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 public interface ShorterService {
 

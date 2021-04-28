@@ -9,7 +9,7 @@ package com.dagm.shorter.consts;
  * 在这里编写类的功能描述
  *
  * @author luweiliang
- * @created 2019/5/10
+ * @create 2019/5/10
  */
 public class TableConst {
 

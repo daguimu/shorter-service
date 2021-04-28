@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @author: Guimu
- * @created: 2020/01/04
+ * @author Guimu
+ * @create 2020/01/04
  */
 @Slf4j
 @Service

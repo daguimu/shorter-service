@@ -11,8 +11,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 @Component
 @ConfigurationProperties(prefix = "spring.shorter")

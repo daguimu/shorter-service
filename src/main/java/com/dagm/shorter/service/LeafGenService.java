@@ -6,8 +6,8 @@
 package com.dagm.shorter.service;
 
 /**
- * @author: Guimu
- * @created: 2020/01/04
+ * @author Guimu
+ * @create 2020/01/04
  */
 public interface LeafGenService {
 

@@ -6,14 +6,15 @@
 package com.dagm.shorter.dto;
 
 import com.dagm.devtool.model.BaseObject;
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.util.Date;
+
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 @Getter
 @Setter

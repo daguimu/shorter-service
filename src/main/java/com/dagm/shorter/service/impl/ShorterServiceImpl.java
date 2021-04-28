@@ -5,36 +5,27 @@
  */
 package com.dagm.shorter.service.impl;
 
-import static com.dagm.shorter.consts.DeteConst.EXPIRES;
-import static com.dagm.shorter.enums.ShorterTipEnum.URL_BIT_CHECK_ERROR;
-import static com.dagm.shorter.enums.ShorterTipEnum.URL_FORMAT_ERROR;
-import static com.dagm.shorter.enums.ShorterTipEnum.URL_SAVE_TO_OSS_ERROR;
-
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.model.OSSObject;
 import com.dagm.devtool.utils.PreconditionsUtil;
 import com.dagm.shorter.config.ShorterConfig;
 import com.dagm.shorter.dto.ShortRecordDTO;
-import com.dagm.shorter.service.BaseShorterService;
-import com.dagm.shorter.service.BitCheckService;
-import com.dagm.shorter.service.LeafGenService;
-import com.dagm.shorter.service.ShorterRecordService;
-import com.dagm.shorter.service.ShorterService;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import javax.annotation.Resource;
+import com.dagm.shorter.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
+import static com.dagm.shorter.consts.DeteConst.EXPIRES;
+import static com.dagm.shorter.enums.ShorterTipEnum.*;
+
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 @Slf4j
 @Service
@@ -132,8 +123,8 @@ public class ShorterServiceImpl implements ShorterService {
     /**
      * 校验longUrl 格式是否符合规范
      *
-     * @author: Guimu
-     * @created: 2020/1/3
+     * @author Guimu
+     * @create 2020/1/3
      */
     private boolean checkUrl(String longUrl) {
         return StringUtils.isNotEmpty(longUrl) && (longUrl.startsWith("http://") || longUrl

@@ -10,14 +10,15 @@ import com.aliyun.oss.OSSClientBuilder;
 import com.dagm.shorter.config.ShorterConfig;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.stream.Stream;
+
 /**
- * @author: Guimu
- * @created: 2020/01/02
+ * @author Guimu
+ * @create 2020/01/02
  */
 @Configuration
 public class ShorterConfiguration {

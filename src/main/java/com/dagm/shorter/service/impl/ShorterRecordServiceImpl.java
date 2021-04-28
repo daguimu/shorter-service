@@ -5,9 +5,6 @@
  */
 package com.dagm.shorter.service.impl;
 
-import static com.dagm.shorter.enums.ShorterTipEnum.URL_EXPIRED_ERROR;
-import static com.dagm.shorter.enums.ShorterTipEnum.URL_NOT_EXISTED_ERROR;
-
 import com.dagm.devtool.cache.CacheKeySetting;
 import com.dagm.devtool.service.RedisStoreClient;
 import com.dagm.devtool.utils.DateTimeUtil;
@@ -20,15 +17,19 @@ import com.dagm.shorter.mapper.ShorterRecordMapper;
 import com.dagm.shorter.model.ShorterRecordPO;
 import com.dagm.shorter.service.ShorterRecordService;
 import com.dagm.shorter.utils.GenerateTableNameUtil;
-import java.time.LocalDateTime;
-import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
+import static com.dagm.shorter.enums.ShorterTipEnum.URL_EXPIRED_ERROR;
+import static com.dagm.shorter.enums.ShorterTipEnum.URL_NOT_EXISTED_ERROR;
+
 /**
- * @author: Guimu
- * @created: 2020/01/03
+ * @author Guimu
+ * @create 2020/01/03
  */
 @Slf4j
 @Service

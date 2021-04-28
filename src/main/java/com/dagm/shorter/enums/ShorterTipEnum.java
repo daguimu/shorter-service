@@ -10,8 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @author: Guimu
- * @created: 2019/10/07
+ * @author Guimu
+ * @create 2019/10/07
  */
 @Getter
 @AllArgsConstructor

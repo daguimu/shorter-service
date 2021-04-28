@@ -6,8 +6,8 @@
 package com.dagm.shorter.consts;
 
 /**
- * @author: Guimu
- * @created: 2020/01/04
+ * @author Guimu
+ * @create 2020/01/04
  */
 public class ShortCacheConst {
 

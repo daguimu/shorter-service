@@ -5,13 +5,14 @@
  */
 package com.dagm.shorter.utils;
 
-import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.io.UnsupportedEncodingException;
+
 /**
- * @author: Guimu
- * @created: 2019/12/10
+ * @author Guimu
+ * @create 2019/12/10
  */
 public class AuthUtil {
 

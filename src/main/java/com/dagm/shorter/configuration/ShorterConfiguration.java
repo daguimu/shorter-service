@@ -7,6 +7,9 @@ package com.dagm.shorter.configuration;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import com.dagm.devtool.model.AccessModel;
+import com.dagm.devtool.service.RedisStoreClient;
+import com.dagm.shorter.cache.ShorterCacheKeyUtil;
 import com.dagm.shorter.config.ShorterConfig;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
@@ -26,11 +29,15 @@ public class ShorterConfiguration {
     @Autowired
     private ShorterConfig shorterConfig;
 
+    @Autowired
+    private RedisStoreClient redisStoreClient;
+
     @Bean(name = "ossClient")
     public OSS createOssClient() {
         String endpoint = shorterConfig.getEndpoint();
-        String accessKeyId = shorterConfig.getAccessKeyId();
-        String accessKeySecret = shorterConfig.getAccessKeySecret();
+        AccessModel access = redisStoreClient.get(ShorterCacheKeyUtil.getSecretCacheKey(shorterConfig.getSecretKey()).getKey());
+        String accessKeyId = access.getAccessKeyId();
+        String accessKeySecret = access.getAccessKeySecret();
         return new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
     }
 

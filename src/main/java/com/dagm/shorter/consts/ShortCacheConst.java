@@ -19,4 +19,8 @@ public class ShortCacheConst {
      * leaf id expire 5 minutes
      */
     public static final int OSS_FILE_PATH_LEAF_ID_KEY_EXPIRE = 5 * 60;
+
+
+    public static final String COMMON = "common_%s";
+    public static final int COMMON_EXPIRE = -1;
 }

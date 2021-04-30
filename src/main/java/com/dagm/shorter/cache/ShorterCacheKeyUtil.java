@@ -23,8 +23,21 @@ public class ShorterCacheKeyUtil {
      */
     public static CacheKeySetting getLeafCacheKey(Long leafId) {
         return new CacheKeySetting(
-            StoreKeyUtil
-                .getStringStoreKey(String.format(ShortCacheConst.OSS_FILE_PATH_LEAF_ID, leafId)),
-            ShortCacheConst.OSS_FILE_PATH_LEAF_ID_KEY_EXPIRE);
+                StoreKeyUtil
+                        .getStringStoreKey(String.format(ShortCacheConst.OSS_FILE_PATH_LEAF_ID, leafId)),
+                ShortCacheConst.OSS_FILE_PATH_LEAF_ID_KEY_EXPIRE);
+    }
+
+    /**
+     * 获取secret cache key
+     *
+     * @return com.dagm.devtool.cache.CacheKeySetting
+     * @author Guimu
+     * @date 2020/1/9
+     */
+    public static CacheKeySetting getSecretCacheKey(String key) {
+        return new CacheKeySetting(
+                StoreKeyUtil.getOriginStoreKey(String.format(ShortCacheConst.COMMON, key)),
+                ShortCacheConst.COMMON_EXPIRE);
     }
 }

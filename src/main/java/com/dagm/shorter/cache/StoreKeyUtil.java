@@ -25,4 +25,7 @@ public class StoreKeyUtil {
     public static StoreKey getListStoreKey(String key) {
         return new StoreKey("shorter_list_category", key);
     }
+    public static StoreKey getOriginStoreKey(String key) {
+        return new StoreKey("common", key);
+    }
 }

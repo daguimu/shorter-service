@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -84,6 +85,12 @@ public class ShorterController {
         } catch (IOException e) {
             log.error("下载文件异常 filepath:[{}]", filename, e);
         }
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(new BCryptPasswordEncoder().encode("d5201314"));
+
     }
 
     private String reWriteChinese(String val) {

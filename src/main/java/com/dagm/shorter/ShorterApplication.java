@@ -15,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.dagm.shorter", "com.dagm.api", "com.dagm.devtool"})
 public class ShorterApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(ShorterApplication.class, args);
     }

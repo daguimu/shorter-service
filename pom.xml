@@ -37,6 +37,12 @@
             <groupId>com.dagm</groupId>
             <artifactId>api</artifactId>
             <version>0.0.2-BETA</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>feign-form</artifactId>
+                    <groupId>io.github.openfeign.form</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -108,6 +114,11 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.8.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form</artifactId>
+            <version>3.8.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -1,16 +1,38 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: shorter-service
   cloud:
     nacos:
       config:
-        file-extension: yml  #该属性默认为properties
-        server-addr: ${nacos.addr}
-        shared-dataids: common.yml,manager.yml
-        refreshable-dataids: log.${spring.cloud.nacos.config.file-extension}
+        server-addr: ${nacos.server-addr}
+        context-path: ${nacos.context-path}
+        username: ${nacos.username}
+        password: ${nacos.password}
+        file-extension: yml
+        extension-configs:
+          - data-id: ${spring.application.name}.yml
+            group: DEFAULT_GROUP
+            refresh: true
+        shared-configs:
+          - data-id: common.yml
+            refresh: true
+          - data-id: manager.yml
+            refresh: true
+          - data-id: mq.properties
+            refresh: false
+        namespace: config_hub
       discovery:
-        server-addr: ${nacos.addr}
-        log-name:
+        server-addr: ${nacos.server-addr}
+        context-path: ${nacos.context-path}
+        username: ${nacos.username}
+        password: ${nacos.password}
+        namespace: config_hub
 
 nacos:
-  addr: nacos.dagm.com:80
+  server-addr: https://nacos.dagm.com
+  context-path: nacos
+  username: ${user}
+  password: ${passwd}
+

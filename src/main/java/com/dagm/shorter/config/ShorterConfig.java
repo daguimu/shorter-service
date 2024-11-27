@@ -22,7 +22,8 @@ import org.springframework.stereotype.Component;
 public class ShorterConfig {
 
   private String endpoint;
-  private String secretKey;
+  private String accessKeyId;
+  private String accessKeySecret;
   private String bucketName;
   private String bitStr;
   private String defaultUrl;

@@ -1,4 +1,4 @@
-FROM daocloud.io/java:8
+FROM openjdk:8u102-jdk
 
 # copy arthas-boot.jar 到镜像的根目录下
 COPY arthas-boot.jar /

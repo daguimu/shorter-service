@@ -41,6 +41,6 @@ public class ShorterConfig {
 
     @PostConstruct
     public void log() {
-        log.info("nacos uname is: {}, passwd is: {}", uname, passwd);
+        log.info("nacos uname is: {}, passwd is: {}, baseUrl: {}", uname, passwd, baseUrl);
     }
 }

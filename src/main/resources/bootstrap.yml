@@ -8,8 +8,8 @@ spring:
       config:
         server-addr: ${nacos.server-addr}
         context-path: ${nacos.context-path}
-        username: ${nacos.username}
-        password: ${nacos.password}
+        username: normal
+        password: normal
         file-extension: yml
         extension-configs:
           - data-id: ${spring.application.name}.yml
@@ -26,8 +26,8 @@ spring:
       discovery:
         server-addr: ${nacos.server-addr}
         context-path: ${nacos.context-path}
-        username: ${nacos.username}
-        password: ${nacos.password}
+        username: normal
+        password: normal
         namespace: config_hub
 
 nacos:

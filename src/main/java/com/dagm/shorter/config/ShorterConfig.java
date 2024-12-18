@@ -7,7 +7,6 @@ package com.dagm.shorter.config;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +26,6 @@ public class ShorterConfig {
   private String bucketName;
   private String bitStr;
   private String defaultUrl;
-  @Value("${spring.shorter.baseUrl}")
   private String baseUrl;
   private String ossSuffix;
 }

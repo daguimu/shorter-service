@@ -33,6 +33,6 @@ spring:
 nacos:
   server-addr: https://nacos.dagm.com
   context-path: nacos
-  username: ${user}
-  password: ${passwd}
+  username: normal
+  password: normal
 

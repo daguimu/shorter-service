@@ -1,5 +1,4 @@
-FROM openjdk:8u102-jdk
-
+FROM custom-ubuntu-jdk8:1.0
 # copy arthas-boot.jar 到镜像的根目录下
 COPY arthas-boot.jar /
 # copy arthas 启动脚本 到镜像的根目录下

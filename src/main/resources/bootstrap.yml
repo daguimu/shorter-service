@@ -36,3 +36,10 @@ nacos:
   username: ${user}
   password: ${passwd}
 
+
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true

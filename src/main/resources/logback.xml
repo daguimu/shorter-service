@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <!--日志输出路径-->
-  <property name="LOG_HOME" value="/app/shorter-service/logs"/>
+  <property name="LOG_HOME" value="~/app/shorter-service/logs"/>
   <!--定义日志输出格式 -->
   <property name="LOG_PATTERN"
     value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{ip}] [%thread] %-5level %logger{60} - %msg%n"/>

@@ -46,7 +46,7 @@ public class ShorterController {
     @Autowired
     private FileFeign fileFeign;
 
-    @PostMapping(value = "add")
+    @PostMapping(value = "add", produces = "application/json;charset=UTF-8")
     public BaseResult<String> test(@RequestBody @Valid AddShortRecReq shortRecReq) {
         return BaseResult.generateSuccessResult(shorterService.toBeShorter(shortRecReq.getUrl()));
     }

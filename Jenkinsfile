@@ -12,7 +12,7 @@ standardDeployPipeline([
     buildCmd: 'clean package -DskipTests',
     
     // ========== 3. 健康检查与环境配置 ==========
-    healthCheckUrl: 'https://dagm.com/way/short/health',
+    healthCheckUrl: 'https://dagm.com/way/shorter/health',
     deployEnvs: ['production'],
     
     // ========== 4. 部署逻辑配置 ==========
